@@ -1,7 +1,6 @@
 package commons;
 
 import PageObject.GeneralPage;
-import common.CommonReport;
 import common.GlobalContants;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.apache.commons.io.FileUtils;
@@ -43,6 +42,17 @@ public class AbstractTest {
     }
     @BeforeTest
     @Parameters("browser")
+    public void setUp(String BrowserName) {
+        initBrowser(BrowserName);
+    }
+    @BeforeClass
+    public void beforeClass() {
+        try {
+            RUN_ID = String.valueOf(System.currentTimeMillis());
+            generalPage = new GeneralPage(getDriver());
+        } catch (Exception e) {
+        }
+    }
     private void initBrowser(String BrowserName) throws TimeoutException {
         String browserType;
         WebDriver localDriver = null;
@@ -57,15 +67,6 @@ public class AbstractTest {
         getDriver().manage().window().maximize();
         getDriver().get(GlobalContants.URL);
 
-    }
-
-    @BeforeClass
-    public void beforeClass() {
-        try {
-            RUN_ID = String.valueOf(System.currentTimeMillis());
-            generalPage = new GeneralPage(getDriver());
-        } catch (Exception e) {
-        }
     }
 
 }

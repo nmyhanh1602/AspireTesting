@@ -15,8 +15,7 @@ public class RegisterTestcase extends AbstractTest {
     @BeforeClass
 
     @Test
-    public void startBrowser(){
-       // this.driver.get("https://feature-qa.customer-frontend.staging.aspireapp.com/sg/");
-       // registerPage.goToRegisterPage();
+    public void TC_01_RegisterWithValidInfo(){
+ 
     }
 }
