@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [All Test Suite]">
+  <listeners>
+    <listener class-name="org.testng.reporters.EmailableReporter"/>
+    <listener class-name="org.testng.reporters.FailedReporter"/>
+  </listeners>
+  <test thread-count="5" name="First Test Case(failed)">
+    <parameter name="browser" value="chrome"/>
+    <classes>
+      <class name="RegisterScenario.RegisterTestcase">
+        <methods>
+          <include name="beforeClass"/>
+          <include name="startBrowser"/>
+        </methods>
+      </class> <!-- RegisterScenario.RegisterTestcase -->
+    </classes>
+  </test> <!-- First Test Case(failed) -->
+</suite> <!-- Failed suite [All Test Suite] -->

@@ -1,0 +1,6 @@
+{
+  "browser": "chrome",
+  "object_wait": 3,
+  "env": "testing",
+  "url": "https://feature-qa.customer-frontend.staging.aspireapp.com/sg/"
+}
