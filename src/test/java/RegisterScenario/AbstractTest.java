@@ -20,16 +20,6 @@ import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 public class AbstractTest {
-   /* private WebDriver driver;
-    protected GeneralPage generalPage;
-    private static ThreadLocal<WebDriver> threadLocalDriver = new ThreadLocal<WebDriver>();
-    protected WebDriver getBrowserDriver(String browserName){
-        if(browserName.equals("chrome")){
-            WebDriverManager.chromedriver().setup();
-            threadLocalDriver.set(new ChromeDriver());
-        }
-        return threadLocalDriver.get();
-    }*/
     protected GeneralPage generalPage;
     public static ThreadLocal<WebDriver> driver = new ThreadLocal<>();
     public String RUN_ID, screenshotPath;
@@ -44,12 +34,13 @@ public class AbstractTest {
     @Parameters("browser")
     public void setUp(String BrowserName) {
         initBrowser(BrowserName);
+        generalPage = new GeneralPage(getDriver());
     }
     @BeforeClass
     public void beforeClass() {
         try {
             RUN_ID = String.valueOf(System.currentTimeMillis());
-            generalPage = new GeneralPage(getDriver());
+
         } catch (Exception e) {
         }
     }

@@ -20,8 +20,8 @@ public class GeneralPage {
 	}
 
 	public RegisterPage goToRegisterPage() {
+		//wait.waitForPageLoad();
 		Link loginLink = new Link(driver, LoginUI.registerLink);
-		wait.waitUntilToBeClickAble(loginLink.getWebElement());
 		loginLink.clickLink();
 		wait.waitForPageLoad();
 		return new RegisterPage(driver);
