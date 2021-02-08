@@ -4,6 +4,7 @@ import common.CommonWait;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebDriverException;
+import org.openqa.selenium.WebElement;
 
 public class Button extends Component {
 
@@ -15,15 +16,11 @@ public class Button extends Component {
         super(driver);
     }
 
-    public void clickButton() throws WebDriverException {
-        CommonWait waitU;
-        waitU = new CommonWait(driver);
-        try {
-            click();
-            waitU.waitForPageLoad();
-        } catch (TimeoutException ex) {
-            waitU.stopPageLoad();
-        }
+    CommonWait wait = new CommonWait(driver);
 
+    public void clickButton() throws WebDriverException {
+        WebElement element = getWebElement();
+        wait.waitUntilToBeClickAble(element);
+        click();
     }
 }

@@ -5,6 +5,8 @@ import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.util.List;
+
 public class CommonWait {
     private static final int TIMEOUT_INTERVAL_UNIT = 30;
     protected WebDriver driver;
@@ -29,10 +31,14 @@ public class CommonWait {
      * @throws TimeoutException
      */
 
-    public void waitUntilToBeClickAble(WebElement element) throws TimeoutException {
+   public void waitUntilToBeClickAble(WebElement element){
         waitUntilVisibilityOf(element);
         wait.until(ExpectedConditions.elementToBeClickable(element));
     }
+    public List<WebElement> waitElementsToBeExist(By locator) {
+        return wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(locator));
+    }
+
 
     /**
      * Wait until element clickable after refreshed
@@ -99,7 +105,7 @@ public class CommonWait {
      * @throws TimeoutException
      */
 
-    public void waitUntilVisibilityOf(WebElement element) throws TimeoutException {
+    public void waitUntilVisibilityOf(WebElement element)  {
         wait.until(ExpectedConditions.visibilityOf(element));
     }
 

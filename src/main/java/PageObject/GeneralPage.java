@@ -26,4 +26,8 @@ public class GeneralPage {
 		wait.waitForPageLoad();
 		return new RegisterPage(driver);
 	}
+	public String formatLocator(String locator,String... value){
+		String formatLocator = String.format(locator,(Object[]) value);
+		return formatLocator;
+	}
 }

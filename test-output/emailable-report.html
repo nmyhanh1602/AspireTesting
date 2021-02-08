@@ -25,47 +25,77 @@ td,th {border:1px solid #009;padding:.25em .5em}
 <body>
 <table cellspacing="0" cellpadding="0" class="testOverview">
 <tr><th>Test</th><th>Methods<br/>Passed</th><th>Scenarios<br/>Passed</th><th># skipped</th><th># failed</th><th>Total<br/>Time</th><th>Included<br/>Groups</th><th>Excluded<br/>Groups</th></tr>
-<tr><td style="text-align:left;padding-right:2em"><a href="#t1">First Test Case</a></td><td class="numi">0</td><td class="numi">0</td><td class="numi">0</td><td class="numi_attn">1</td><td class="numi">99.0 seconds</td><td class="numi"></td><td class="numi"></td></tr>
+<tr><td style="text-align:left;padding-right:2em"><a href="#t1">First Test Case</a></td><td class="numi">0</td><td class="numi">0</td><td class="numi_attn">1</td><td class="numi">0</td><td class="numi">26.8 seconds</td><td class="numi"></td><td class="numi"></td></tr>
 </table>
 <table cellspacing="0" cellpadding="0" class="methodOverview" id="summary">
 <tr><th>Class</th><th>Method</th><th># of<br/>Scenarios</th><th>Start</th><th>Time<br/>(ms)</th></tr>
-<tr id="t1"><th colspan="5">First Test Case &#8212; failed</th></tr>
-<tr class="failedodd"><td>RegisterScenario.RegisterTestcase</td><td><a href="#m1"><b>startBrowser</b>  </a></td><td class="numi">1</td><td>1612616249442</td><td class="numi">22575</td></tr>
+<tr id="t1"><th colspan="5">First Test Case &#8212; failed (configuration methods)</th></tr>
+<tr class="failedodd"><td>RegisterScenario.RegisterTestcase</td><td><a href="#m1"><b>TC_01_RegisterWithValidInfo</b>  </a></td><td class="numi">1</td><td>1612791320035</td><td class="numi">18762</td></tr>
+<tr><th colspan="5">First Test Case &#8212; skipped</th></tr>
+<tr class="skippedodd"><td>RegisterScenario.RegisterTestcase</td><td><a href="#m2"><b>TC_01_RegisterWithValidInfo</b>  </a></td><td class="numi">1</td><td>1612791339105</td><td class="numi">0</td></tr>
 </table>
 <h1>First Test Case</h1>
-<h2 id="m1">RegisterScenario.RegisterTestcase:startBrowser</h2>
+<h2 id="m1">RegisterScenario.RegisterTestcase:TC_01_RegisterWithValidInfo</h2>
 <div>
 <div class="stacktrace">java.lang.NullPointerException
-    at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
-    at PageObject.AbstractPage.getWebElement(AbstractPage.java:51)
-    at PageObject.AbstractPage.getWebElement(AbstractPage.java:57)
-    at PageObject.AbstractPage.clickLink(AbstractPage.java:102)
-    at PageObject.LoginPage.clickRegisterLink(LoginPage.java:16)
-    at RegisterScenario.RegisterTestcase.startBrowser(RegisterTestcase.java:23)
-    at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-    at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-    at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-    at java.lang.reflect.Method.invoke(Method.java:498)
-    at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
-    at org.testng.internal.Invoker.invokeMethod(Invoker.java:583)
-    at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)
-    at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:989)
-    at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
-    at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
-    at org.testng.TestRunner.privateRun(TestRunner.java:648)
-    at org.testng.TestRunner.run(TestRunner.java:505)
-    at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
-    at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
-    at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
-    at org.testng.SuiteRunner.run(SuiteRunner.java:364)
-    at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-    at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
-    at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
-    at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
-    at org.testng.TestNG.runSuites(TestNG.java:1049)
-    at org.testng.TestNG.run(TestNG.java:1017)
-    at com.intellij.rt.testng.IDEARemoteTestNG.run(IDEARemoteTestNG.java:66)
-    at com.intellij.rt.testng.RemoteTestNGStarter.main(RemoteTestNGStarter.java:109)
+	at RegisterScenario.RegisterTestcase.TC_01_RegisterWithValidInfo(RegisterTestcase.java:37)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+	at org.testng.internal.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:59)
+	at org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:458)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:222)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:142)
+	at org.testng.internal.TestMethodWorker.invokeBeforeClassMethods(TestMethodWorker.java:168)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:105)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+	at org.testng.TestNG.runSuites(TestNG.java:1049)
+	at org.testng.TestNG.run(TestNG.java:1017)
+	at com.intellij.rt.testng.IDEARemoteTestNG.run(IDEARemoteTestNG.java:66)
+	at com.intellij.rt.testng.RemoteTestNGStarter.main(RemoteTestNGStarter.java:109)
+</div>
+</div>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m2">RegisterScenario.RegisterTestcase:TC_01_RegisterWithValidInfo</h2>
+<div>
+<div class="stacktrace">java.lang.NullPointerException
+	at RegisterScenario.RegisterTestcase.TC_01_RegisterWithValidInfo(RegisterTestcase.java:37)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+	at org.testng.internal.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:59)
+	at org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:458)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:222)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:142)
+	at org.testng.internal.TestMethodWorker.invokeBeforeClassMethods(TestMethodWorker.java:168)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:105)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+	at org.testng.TestNG.runSuites(TestNG.java:1049)
+	at org.testng.TestNG.run(TestNG.java:1017)
+	at com.intellij.rt.testng.IDEARemoteTestNG.run(IDEARemoteTestNG.java:66)
+	at com.intellij.rt.testng.RemoteTestNGStarter.main(RemoteTestNGStarter.java:109)
 </div>
 </div>
 <p class="totop"><a href="#summary">back to summary</a></p>

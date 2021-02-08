@@ -1,5 +1,7 @@
 package common.components;
 
+import com.google.inject.internal.cglib.core.$CodeGenerationException;
+import common.CommonWait;
 import org.openqa.selenium.*;
 
 import java.util.List;
@@ -10,6 +12,7 @@ public abstract class Component {
     private By by;
     private WebElement webElement;
 
+
     public Component(WebDriver driver) {
         this.driver = driver;
     }
@@ -19,10 +22,6 @@ public abstract class Component {
         this.locator = locator;
         by = getBy();
     }
-
-	/*
-	 *  init components
-	 */
 
     public By getBy() {
         if (locator.startsWith("css="))
@@ -40,7 +39,21 @@ public abstract class Component {
     }
 
     public WebElement getWebElement() {
-        webElement = driver.findElement(by);
+        int sleepTime = 200;
+        int timeout = 10000;
+        int runTime = 0;
+        while (true && webElement == null){
+            runTime += sleepTime;
+            try {
+                webElement = driver.findElement(by);
+                if ((webElement != null && webElement.isDisplayed()) || runTime > timeout){
+                    break;
+                }
+                sleep(sleepTime);
+            } catch (NoSuchElementException ex){
+            }
+
+        }
         return webElement;
     }
 
@@ -52,21 +65,26 @@ public abstract class Component {
     public List<WebElement> getWebElements() {
         return driver.findElements(by);
     }
-	
-	/*
-	 *  Actions
-	 */
+
+    public List<WebElement> getWebElements(String locator) {
+        by = getBy(locator);
+        return driver.findElements(by);
+    }
 
     public void refresh() {
         by = getBy();
     }
 
-    public void click() throws WebDriverException {
+    public void click() {
         getWebElement();
         webElement.click();
     }
 
     public void click(String locator) {
+        getWebElement(locator);
+        webElement.click();
+    }
+    public void click(WebElement element) {
         getWebElement(locator);
         webElement.click();
     }
@@ -86,16 +104,6 @@ public abstract class Component {
         return webElement.getAttribute("value");
     }
 
-    public String getInnerText() {
-        getWebElement();
-        return webElement.getAttribute("innerText");
-    }
-
-    public String getAttribute(String attribute) {
-        getWebElement();
-        return webElement.getAttribute(attribute);
-    }
-
     public void enter(String value) {
         getWebElement();
         webElement.clear();
@@ -106,37 +114,15 @@ public abstract class Component {
         enter(String.valueOf(value));
     }
 
+    protected void sendKeys(CharSequence... keysToSend) {
+        driver.switchTo().activeElement().sendKeys(keysToSend);
+    }
+
     public void pressKey(Keys key) {
         getWebElement();
         webElement.sendKeys(key);
     }
 
-    public boolean isChecked() {
-        getWebElement();
-        return webElement.isSelected();
-    }
-
-    public int getSize() {
-        return driver.findElements(by).size();
-    }
-
-    public boolean isPresent() {
-        try {
-            driver.findElement(by);
-        } catch (NoSuchElementException e) {
-            return false;
-        }
-        return true;
-    }
-
-    public boolean isDisplay() {
-        try {
-            return driver.findElement(by).isDisplayed();
-        } catch (NoSuchElementException e) {
-            return false;
-        }
-    }
-	
     public void sleep(long time) {
         try {
             Thread.sleep(time);

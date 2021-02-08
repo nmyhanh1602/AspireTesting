@@ -14,10 +14,10 @@ public class CheckBox extends Component {
         super(driver);
     }
 
-    public void checkToCheckBox(WebDriver driver, String xpathValue) {
+    public void checkToCheckBox() {
         element = getWebElement();
         if (!element.isSelected()) {
-            click();
+            element.click();
         }
     }
 }

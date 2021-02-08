@@ -15,14 +15,7 @@ public class Link extends Component {
     }
 
     public void clickLink() {
-    	CommonWait wait = new CommonWait(driver);
-        try {
-        	wait.waitUntilToBeClickAble(getWebElement());
+        	getWebElement();
             click();
-            wait.waitForPageLoad();
-        } catch (TimeoutException ex) {
-            wait.stopPageLoad();
-        }
-
     }
 }

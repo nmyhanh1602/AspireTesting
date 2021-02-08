@@ -1,6 +1,7 @@
-package commons;
+package RegisterScenario;
 
 import PageObject.GeneralPage;
+import common.CommonWait;
 import common.GlobalContants;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.apache.commons.io.FileUtils;
@@ -26,7 +27,7 @@ public class AbstractTest {
     public static Map<WebDriver, String> className = new HashMap<>();
     private static int failCount = 0;
     public static String homeURL;
-
+    CommonWait wait;
     public synchronized static WebDriver getDriver() {
         return driver.get();
     }
@@ -44,19 +45,18 @@ public class AbstractTest {
         } catch (Exception e) {
         }
     }
-    private void initBrowser(String BrowserName) throws TimeoutException {
-        String browserType;
-        WebDriver localDriver = null;
-        if (BrowserName.equals("chrome")) {
-            WebDriverManager.chromedriver().setup();
-            localDriver = new ChromeDriver();
-        } else if (BrowserName.equals("firefox")) {
-            WebDriverManager.firefoxdriver().setup();
-            localDriver = new FirefoxDriver();
-        }
-        driver.set(localDriver);
-        getDriver().manage().window().maximize();
-        getDriver().get(GlobalContants.URL);
+    private void initBrowser(String BrowserName) {
+            WebDriver localDriver = null;
+            if (BrowserName.equals("chrome")) {
+                WebDriverManager.chromedriver().setup();
+                localDriver = new ChromeDriver();
+            } else if (BrowserName.equals("firefox")) {
+                WebDriverManager.firefoxdriver().setup();
+                localDriver = new FirefoxDriver();
+            }
+            driver.set(localDriver);
+            getDriver().manage().window().maximize();
+            getDriver().get(GlobalContants.URL);
 
     }
 
